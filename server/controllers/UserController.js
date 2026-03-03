@@ -26,7 +26,7 @@ const clerkWebhooks = async (req, res) => {
           photo: data.profile_image_url,
           firstName: data.first_name,
           lastName: data.last_name,
-          creditBalance: 0,
+          creditBalance: 5,
         });
         break;
 
