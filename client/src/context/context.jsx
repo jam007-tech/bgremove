@@ -11,7 +11,7 @@ const contextProvider=(props)=>{
     const [credit,setCredit]=useState(0)
     const [image,setImage]=useState(false)
     const [resultImage,setResultImage]=useState(false)
-    const [triggerUpload,setTriggerUpload]=useState(false) // 👈 add kiya
+    const [triggerUpload,setTriggerUpload]=useState(false) 
     const backendUrl = import.meta.env.VITE_BACKEND_URL
     const navigate=useNavigate()
 
@@ -90,8 +90,8 @@ const contextProvider=(props)=>{
         resultImage,
         setResultImage,
         navigate,
-        triggerUpload,      // 👈 add kiya
-        setTriggerUpload    // 👈 add kiya
+        triggerUpload,      
+        setTriggerUpload   
     }
 
     return (

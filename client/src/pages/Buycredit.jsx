@@ -32,7 +32,6 @@ const Buycredit = () => {
 
                     if (data.success) {
 
-                        // 🔥 DIRECTLY UPDATE CREDIT
                         setCredit(data.creditBalance);
 
                         toast.success('Credits Added 🎉');

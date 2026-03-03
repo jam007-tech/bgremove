@@ -1,17 +1,17 @@
-import { useContext, useEffect } from "react";  // 👈 useEffect add kiya
+import { useContext, useEffect } from "react";
 import {assets} from "../assets/assets"
 import { context } from "../context/context";
 
 const Header=()=>{
 
-    const {removeBg, triggerUpload, setTriggerUpload}=useContext(context)  // 👈 add kiya
+    const {removeBg, triggerUpload, setTriggerUpload}=useContext(context) 
 
     useEffect(() => {
         if (triggerUpload) {
             document.getElementById('upload1').click()
             setTriggerUpload(false)
         }
-    }, [triggerUpload])  // 👈 flag change hone pe upload open hoga
+    }, [triggerUpload])  
 
 return(
     <div className="flex items-center justify-between max-sm:flex-col-reverse gap-y-10 px-4 mt-10 lg:px-44 sm:mt-20">

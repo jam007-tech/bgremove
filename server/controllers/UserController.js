@@ -179,7 +179,7 @@ const verifyRazorpay = async (req, res) => {
       return res.json({ success: false, message: "Payment already processed" });
     }
 
-    // 🔥 Update credits
+    // Update credits
     const userData = await userModel.findOne({ clerkId: transactionData.clerkId });
 
     const newBalance = userData.creditBalance + transactionData.credits;
@@ -193,7 +193,7 @@ const verifyRazorpay = async (req, res) => {
       payment: true
     });
 
-    // 🔥 RETURN UPDATED BALANCE
+    // RETURN UPDATED BALANCE
     return res.json({
       success: true,
       creditBalance: newBalance
