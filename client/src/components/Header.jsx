@@ -1,13 +1,20 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";  // 👈 useEffect add kiya
 import {assets} from "../assets/assets"
 import { context } from "../context/context";
+
 const Header=()=>{
 
-    const {removeBg}=useContext(context)
+    const {removeBg, triggerUpload, setTriggerUpload}=useContext(context)  // 👈 add kiya
+
+    useEffect(() => {
+        if (triggerUpload) {
+            document.getElementById('upload1').click()
+            setTriggerUpload(false)
+        }
+    }, [triggerUpload])  // 👈 flag change hone pe upload open hoga
 
 return(
     <div className="flex items-center justify-between max-sm:flex-col-reverse gap-y-10 px-4 mt-10 lg:px-44 sm:mt-20">
-        {/* ......................left.......................... */}
         <div >
             <h1 className="text-4xl xl:text-5xl 2xl:text-6xl font-bold text-nuetral-700 leading-tight">
                 Remove the <br className="max-md:hidden"/>  <span className="bg-gradient-to-r from-violet-600 to-fuchsia-500 bg-clip-text text-transparent">background</span> from <br className="max-md:hidden"/> images for free
@@ -21,8 +28,6 @@ return(
                 </label>
             </div>
         </div>
-
-        {/* ......................right.......................... */}
         <div className="w-full max-w-md" >
             <img  src={assets.header_img} alt="" />
         </div>

@@ -11,6 +11,7 @@ const contextProvider=(props)=>{
     const [credit,setCredit]=useState(0)
     const [image,setImage]=useState(false)
     const [resultImage,setResultImage]=useState(false)
+    const [triggerUpload,setTriggerUpload]=useState(false) // 👈 add kiya
     const backendUrl = import.meta.env.VITE_BACKEND_URL
     const navigate=useNavigate()
 
@@ -19,21 +20,21 @@ const contextProvider=(props)=>{
     const {openSignIn}=useClerk()
 
     const loadCreditsData = async () => {
-    try {
-        const token = await getToken();
-        const { data } = await axios.post(  // 👈 get → post
-            `${backendUrl}/api/user/credits`,
-            { clerkId: user.id },  // 👈 clerkId bhejo
-            { headers: { token } }
-        );
-        if (data.success) {
-            setCredit(data.credits)
+        try {
+            const token = await getToken();
+            const { data } = await axios.post(
+                `${backendUrl}/api/user/credits`,
+                { clerkId: user.id },
+                { headers: { token } }
+            );
+            if (data.success) {
+                setCredit(data.credits)
+            }
+        } catch (error) {
+            console.log(error);
+            toast.error(error.message)
         }
-    } catch (error) {
-        console.log(error);
-        toast.error(error.message)
     }
-}
 
     useEffect(() => {
         if (!isLoaded) return;
@@ -46,7 +47,6 @@ const contextProvider=(props)=>{
 
     const removeBg=async(image)=>{
         try {
-            
             if(!isSignedIn){
                 return openSignIn()
             }
@@ -55,9 +55,7 @@ const contextProvider=(props)=>{
             navigate('/result')
 
             const token=await getToken()
-
             const formData = new FormData();
-
             formData.append("image", image);
             formData.append("clerkId", user.id);
             const {data}=await axios.post(backendUrl+'/api/image/remove-bg',formData,{
@@ -67,9 +65,7 @@ const contextProvider=(props)=>{
             if(data.success){
                 setResultImage(data.resultImage)
                 data.creditBalance && setCredit(data.creditBalance)
-            }
-
-            else{
+            } else {
                 toast.error(data.message)
                 data.creditBalance && setCredit(data.creditBalance)
                 if(data.creditBalance==0){
@@ -93,7 +89,9 @@ const contextProvider=(props)=>{
         removeBg,
         resultImage,
         setResultImage,
-        navigate
+        navigate,
+        triggerUpload,      // 👈 add kiya
+        setTriggerUpload    // 👈 add kiya
     }
 
     return (
