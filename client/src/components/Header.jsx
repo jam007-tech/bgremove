@@ -28,8 +28,8 @@ return(
                 </label>
             </div>
         </div>
-        <div className="w-full max-w-md" >
-            <img  src={assets.header_img} alt="" />
+        <div className="w-full max-w-full" >
+            <img  src={assets.header_img1} alt="" />
         </div>
     </div>
 )

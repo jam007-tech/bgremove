@@ -2,12 +2,15 @@ import logo from './logo.svg'
 import logo_icon from './logo_icon.svg'
 import arrow_icon from './arrow_icon.svg'
 import header_img from './header_img.png'
+import header_img1 from './header_img1.png'
 import remove_bg_icon from './remove_bg_icon.svg'
 import upload_btn_icon from './upload_btn_icon.svg'
 import upload_icon from './upload_icon.svg'
 import download_icon from './download_icon.svg'
 import image_w_bg from './image_w_bg.png'
 import image_wo_bg from './image_wo_bg.png'
+import image1_w_bg from './image1_w_bg.png'
+import image1_wo_bg from './image1_wo_bg.png'
 import facebook_icon from './facebook_icon.svg'
 import google_plus_icon from './google_plus_icon.svg'
 import twitter_icon from './twitter_icon.svg'
@@ -20,11 +23,14 @@ export const assets = {
     logo_icon,
     arrow_icon,
     header_img,
+    header_img1,
     remove_bg_icon,
     upload_icon,
     download_icon,
     image_w_bg,
     image_wo_bg,
+    image1_w_bg,
+    image1_wo_bg,
     facebook_icon,
     google_plus_icon,
     twitter_icon,
@@ -36,14 +42,14 @@ export const testimonialsData = [
     {
         id: 1,
         text: "I've been using bg.removal for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.",
-        author: "Richard Nelson",
+        author: "Gautam",
         image: profile_img_1,
         jobTitle:'Web Developer'
     },
     {
         id: 2,
         text: "I've been using bg.removal for nearly 6 months, I had a fantastic experience. The quality is top-notch. I recommend others to try this app.",
-        author: "Donald Jackman",
+        author: "Nirbhay",
         image: profile_img_2,
         jobTitle:'UI Deginer'
     },
